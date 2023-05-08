@@ -1,0 +1,1 @@
+python -m torch.distributed.run --nnode 1 --master_addr=localhost --master_port=23995 --nproc_per_node 4 main.py

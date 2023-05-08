@@ -1,0 +1,41 @@
+# training config 
+model_parallel_size: 2
+data_path: ./resource/
+splits_string: 0.95-0.025-0.025
+seed: 1234
+logdir: "./log/llama-7b-zh/"
+ckpt_dir: './checkpoints/llama-zh/'
+tokenizer_path: './resource/wiki_zh_bpe.model'
+training_config:
+  micro_batch_size: 4
+  batch_size: 32
+  n_epochs: 3
+  warmup_step: 1000
+  start_step: 0
+  resume_step: 0 # 从第resume_step开始训练（会加载该步对应的模型和optimizer）
+  log_every_n_step: 200
+  eval_every_n_step: 1
+  start_eval_step: 0
+  save_every_n_step: 1
+  keep_n_checkpoints: 10
+model_config:
+  # vocab_size: 20000
+  # n_layers: 16
+  # n_heads: 32
+  # dim: 4096
+  # max_seq_len: 1024
+  vocab_size: 20000
+  n_layers: 2
+  n_heads: 2
+  dim: 128
+  max_seq_len: 32
+  initializer_range: 0.02
+optimizer_config:
+  lr: 3e-4
+  min_lr: 1.0e-5
+  beta1: 0.9
+  beta2: 0.95
+  weight_decay: 1e-1
+  clip_grad: 1.0
+  warmup_step: 200
+
