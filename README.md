@@ -12,7 +12,7 @@
 
 ## 结构说明
 
-```json
+```text
 SimpleParallel/
 ├── README.md # 文档说明
 ├── train_tokenizer.py # 基于sentencepiece训练一个中文分词模型
